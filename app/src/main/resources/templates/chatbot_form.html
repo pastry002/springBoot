@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>챗봇</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <link rel="stylesheet" href="/css/chatbot.css" />
+</head>
+<body>
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
+	<th:block layout:fragment="content"></th:block>
+	<script th:src="@{/bootstrap.min.js}"></script>
+	<th:block layout:fragment="script"></th:block>
+
+    <div class="page-content-wrapper">
+        <div class="container mx-auto chat-container">
+            <h1 class="text-2xl font-bold p-4 text-center text-gray-800 border-b border-gray-200">AI Chatbot</h1>
+            <div id="chat-messages">
+                <div class="message-bubble message-bot">안녕하세요! Claude 3.5 Sonnet 모델을 이용한 챗봇입니다.</div>
+            </div>
+
+            <form id="chatbotForm" class="chat-input-form flex items-center gap-2">
+                <input type="text" id="messageInput" name="message" placeholder="메시지를 입력하세요"
+                    class="flex-1 p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
+                <button type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    보내기
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/bootstrap.min.js}"></script>
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbotForm = document.getElementById('chatbotForm');
+            const messageInput = document.getElementById('messageInput');
+            const chatMessagesDiv = document.getElementById('chat-messages');
+
+            function addMessage(sender, text) {
+                const messageBubble = document.createElement('div');
+                messageBubble.classList.add('message-bubble');
+
+                if (sender === 'You') {
+                    messageBubble.classList.add('message-user');
+				} else {
+					messageBubble.classList.add('message-bot');
+				}
+                messageBubble.textContent = text;
+                chatMessagesDiv.appendChild(messageBubble);
+				chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+			}
+
+		chatbotForm.addEventListener('submit', async function(event) {
+			event.preventDefault();
+			const userMessage = messageInput.value.trim();
+			
+			if (userMessage) {
+				addMessage('You', userMessage);
+                messageInput.value = ''; 
+				
+				try {
+					const formData = new URLSearchParams();
+                    formData.append('message', userMessage);
+                    console.log('Sending message:', userMessage);
+						
+					const response = await fetch('/chat', {
+						method: 'POST',
+                        headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+                        body: formData.toString()
+					});
+						
+					console.log('Response status:', response.status);
+                    if (!response.ok) {
+						const errorText = await response.text();
+                        console.error('HTTP Error details:', errorText);
+                        //throw new Error(`HTTP 에러! 상태: ${response.status}`);
+					}
+						
+					const botResponseText = await response.text();
+                    console.log('Bot response:', botResponseText);
+                    addMessage('Bot', botResponseText);
+						
+				} catch (error) {
+					console.error('error : ', error);
+                    addMessage('Bot', '챗봇과 연결할 수 없습니다');
+				}
+			}
+		});
+	});
+    </script>
+</body>
+</html>
