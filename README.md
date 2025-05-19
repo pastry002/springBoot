@@ -2,7 +2,7 @@
 - **BackEnd**:
   - <img src="https://img.shields.io/badge/java-%23007396.svg?&style=for-the-badge&logo=java&logoColor=white" /> 17
   - <img src="https://img.shields.io/badge/spring-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white" />
-    	- Spring Boot 3.4.5 / Spring Security
+  	- Spring Boot 3.4.5 / Spring Security
   	- Spring Data JPA
 
 - **Frontend**:
@@ -40,7 +40,7 @@
 
 - **Q&A**:
   - CRUD 기능을 갖춘 게시판
-  - 	Spring Security 적용으로 CRUD 기능은 로그인 후 이용 가능
+  	- Spring Security 적용으로 CRUD 기능은 로그인 후 이용 가능
   - 댓글 CRUD 및 추천 기능
     ![image](https://github.com/user-attachments/assets/4f6fa1c2-a69c-4cdc-8465-a6c7895357da)
     ![image](https://github.com/user-attachments/assets/76999557-02ca-4843-ad06-9779e62eccca)
