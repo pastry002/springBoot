@@ -1,11 +1,12 @@
 # 개발환경 및 기술 스택
 - **BackEnd**:
   - <img src="https://img.shields.io/badge/java-%23007396.svg?&style=for-the-badge&logo=java&logoColor=white" />
+
   	- Java17 
   - <img src="https://img.shields.io/badge/spring-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white" /> 
     
   	- Spring Boot 3.4.5 / Spring Security
-    	- Spring Data JPA
+     	- Spring Data JPA
 
 
 - **Frontend**:
