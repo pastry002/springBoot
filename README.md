@@ -5,7 +5,7 @@
   - <img src="https://img.shields.io/badge/spring-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white" /> 
     
   	- Spring Boot 3.4.5 / Spring Security
-   - Spring Data JPA
+   	- Spring Data JPA
 
 
 - **Frontend**:
@@ -38,7 +38,7 @@
   - Selenium을 이용해 <a href="https://finance.naver.com/sise/sise_market_sum.naver" target="_blank">네이버 국내증시</a> 
 			페이지에서 상단의 필터를 변경하여 적용한 후 시가총액 상위 50개 기업 정보를 스크래핑
   - 1시간 간격으로 스케줄링
-  - ![image](https://github.com/user-attachments/assets/1f3f7c2b-6a14-4ebe-8a7e-6b20771415fc)
+   ![image](https://github.com/user-attachments/assets/1f3f7c2b-6a14-4ebe-8a7e-6b20771415fc)
 
 
 - **Q&A**:
