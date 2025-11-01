@@ -84,7 +84,7 @@
 - **Spring Security** - OAuth 2.0 소셜 로그인
 - **Spring Data JPA** - ORM 및 데이터 접근
 - **MySQL 8.0** - 데이터베이스
-- **Redis 7.x** - 캐싱 관리
+- **Redis 7.4.6** - 캐싱 관리
 
 ### Frontend
 
