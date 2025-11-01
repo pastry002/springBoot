@@ -45,8 +45,8 @@
                         ↓
 ┌─────────────────────────────────────────────────────────┐
 │         Spring Boot API Server (EC2 t3.small)           │
-│  - REST API (세일/OAuth)                     	  		  │
-│  - Thymeleaf                             				  │
+│  - REST API (세일/OAuth)                     	  		 │
+│  - Thymeleaf                             				   │
 │  - Spring Security (OAuth 2.0)                          │
 └──────┬────────────────────────────┬─────────────────────┘
        │                            │
